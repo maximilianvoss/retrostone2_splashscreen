@@ -1,0 +1,9 @@
+[Plymouth Theme]
+Name=retrostone2
+Description=Retrostone2 Thenme
+Comment=Retrostone2
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/retrostone2
+ScriptFile=/usr/share/plymouth/themes/retrostone2/retrostone2.script

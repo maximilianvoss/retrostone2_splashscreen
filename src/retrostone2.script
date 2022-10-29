@@ -1,0 +1,26 @@
+## Author : Maximilian Voss
+## Mail : maximilian@voss.rocks
+## Github : @maximilianvoss
+
+screen.w = Window.GetWidth();
+screen.h = Window.GetHeight();
+
+progress_count = 60;
+
+background_image = Image("retrostone2.png").Scale(screen.w, screen.h);
+background_sprite = Sprite(background_image);
+
+for (i = 0; i < progress_count; i++) {
+  progress_image[i] = Image("progress-" + i + ".png").Scale(Math.Int(screen.w / 6), Math.Int(screen.w / 6));
+}
+progress_sprite = Sprite();
+
+progress_sprite.SetX(Window.GetX() + (screen.w / 2 - progress_image[0].GetWidth() / 2));
+progress_sprite.SetY(Window.GetY() + ( 3 * screen.h / 4 - progress_image[0].GetHeight() / 2 ));
+
+progress = 0;
+fun refresh_callback () {
+    progress_sprite.SetImage(progress_image[Math.Int(progress / 2) % progress_count]);
+    progress++;
+}
+Plymouth.SetRefreshFunction (refresh_callback);
